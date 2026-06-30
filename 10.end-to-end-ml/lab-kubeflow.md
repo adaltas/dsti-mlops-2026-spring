@@ -28,7 +28,7 @@ Start Minikube with:
 ```bash
 minikube start \
   --cpus=6 \
-  --memory=12288 \
+  --memory=16384 \
   --disk-size=50g
 ```
 
@@ -101,7 +101,7 @@ kubectl get deployments
 
 ## Part 3. Install Kubeflow platforms (easy level)
 
-Kubeflow platform is deployed by following the instructions below. It could take almost 30 minutes
+Kubeflow platform is deployed by following the instructions below. It could take almost 30 minutes.
 
 ```bash
 git clone --branch release-26.03.1 https://github.com/kubeflow/community-distribution.git \
@@ -119,7 +119,7 @@ kubectl wait pod \
 kubectl get pods -n kubeflow
 ```
 
-Running port forward allows to open the Kubeflow dashboard from web browser on [http://localhost:8080/](http://localhost:8080/) url.
+Running port forward allows to open the Kubeflow dashboard from web browser on [http://localhost:8080/](http://localhost:8080/) url. Then connect with the default email `user@example.com` and password `12341234`.
 
 ```bash
 kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
