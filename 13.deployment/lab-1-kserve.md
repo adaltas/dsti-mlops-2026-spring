@@ -26,6 +26,18 @@ Install Minikube and Kubeflow by following the [03.end-to-end-ml](../03.end-to-e
 
 2. After tests validation, change the path to the directory where generated files are stored. On the Kubernetes cluster, it will be `/mnt/model/`.
 
+> Note: if using VM, copy your `train.py` file into th VM. Replace the variables `<USERNAME>`, `<LOCAL_HOST_PATH>` and  `<VM_IP>` with the right values. 
+
+```bash
+scp <LOCAL_HOST_PATH>/train.py <USERNAME>@<VM_IP>:/home/ubuntu/
+```
+
+Then, open another terminal to connect to VM using `ssh` command below. 
+
+```bash
+ssh <USERNAME>@<VM_IP>
+```
+
 3. Create Kubernetes resources
 
 ```bash
@@ -184,6 +196,14 @@ kubectl -n kubeflow-user-example-com port-forward svc/wine-elasticnet-external-t
 ```
 
 5. Open new terminal window and predict the targets of new inputs. It should return a list with predictions. 
+
+> Note: if using VM, open another terminal and connect to VM using `ssh` command below. Replace the variables `<USERNAME>` and  `<VM_IP>` with the right values. 
+
+```bash
+ssh <USERNAME>@<VM_IP>
+```
+
+Use the model to make predictions based on a new dataset.
 
 ```bash
 curl -v "http://localhost:8081/v1/models/wine-elasticnet:predict" \

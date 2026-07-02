@@ -45,6 +45,7 @@ metadata:
   name: $K8S_LAB_POD
   namespace: kubeflow-user-example-com
 spec:
+  serviceAccountName: default-editor
   securityContext:
     runAsNonRoot: true
     runAsUser: 1000
