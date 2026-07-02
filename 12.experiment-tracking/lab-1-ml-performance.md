@@ -21,7 +21,13 @@ Tracking experiments is essential for understanding and improving the performanc
 
 ## Prerequisite
 
-Install Minikube and Kubeflow by following the [03.end-to-end-ml](../03.end-to-end-ml/lab-kubeflow.md) lab.
+Install Minikube and Kubeflow by following the [03.end-to-end-ml](../03.end-to-end-ml/lab-kubeflow.md) lab. 
+
+If using VM, open another terminal to connect to VM using `ssh` command below. Replace the variables `<USERNAME>` and  `<VM_IP>` with the right values. 
+
+```bash
+ssh <USERNAME>@<VM_IP>
+```
 
 ## Part 1. Create lab pod (easy level)
 
