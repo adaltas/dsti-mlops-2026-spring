@@ -210,6 +210,12 @@ Submit your pipeline through KFP Dashboard by downloading IRL YAML from lab pod 
 kubectl -n kubeflow-user-example-com cp "$K8S_LAB_POD":workspace/winequality_pipeline.yaml winequality_pipeline.yaml
 ```
 
+Copy it from the VM to your host machine. Replace the variables `<USERNAME>`,  `<VM_IP>` and `<LOCAL_PATH>` with the right values. 
+
+```bash
+scp <USERNAME>@<VM_IP>:/home/ubuntu/winequality_pipeline.yaml <LOCAL_PATH>
+```
+
 From pipeline UI, the IR YAML file is uploaded by clicking on `+ Upload pipeline` button. On the next page, upload the yaml file, fill the form and click on `Create` button. It shows the pipeline's DAG with his components.
 
 ![pipeline](./assets/kubeflow-pipelines.png)

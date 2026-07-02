@@ -19,6 +19,14 @@ If Minikube is already installed on your host machine and you have basic knowled
 2. Deployement of a simple application (easy level)
 3. Install Kubeflow platforms (easy level)
 
+## Connect to the VM
+
+If using VM, create a tunnel to access your cluster from outside and connect to the VM. Enter the password when asked. Replace the variables `<USERNAME>` and `<VM_IP>` with the right values.
+
+```bash
+ssh -L 8080:localhost:8080 <USERNAME>@<VM_IP>
+```
+
 ## Part 1. Install Minikube (easy level)
 
 Minikube is a tool that allows you to run a complete Kubernetes cluster locally on a single machine, which is ideal for learning, testing, and development. [Kubernetes](https://kubernetes.io/docs/concepts/overview/) is an open-source platform that orchestrates containers (such as Docker) on a cluster of machines to automate the deployment, scaling, and management of applications. In this lab, we will use Minikube to deploy a local Kubernetes environment and run machine learning workflows with Kubeflow. [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) is installed by following the instructions depending on your OS.
@@ -119,12 +127,6 @@ kubectl wait pod \
 kubectl get pods -n kubeflow
 ```
 
-Running port forward allows to open the Kubeflow dashboard from web browser on [http://localhost:8080/](http://localhost:8080/) url. Then connect with the default email `user@example.com` and password `12341234`.
-
-```bash
-kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
-```
-
 Additionnal resources need to be added to enable the pipeline to run from the notebooks.
 
 ```bash
@@ -217,4 +219,10 @@ spec:
                 value: "user@example.com"
   workloadSelector: {}
 YAML
+```
+
+Running port forward allows to open the Kubeflow dashboard from web browser on [http://localhost:8080/](http://localhost:8080/) url. Then connect with the default email `user@example.com` and password `12341234`.
+
+```bash
+kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
 ```
